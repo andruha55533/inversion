@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Switch {
+  constructor(device) {
+    this.device = device;
+  }
+
+  operate() {
+    this.device.turnOn();
+    this.device.turnOff();
+  }
+}
+
+class SwitchableDevice {
+  turnOn() {
+    throw new Error("Method not implemented");
+  }
+
+  turnOff() {
+    throw new Error("Method not implemented");
+  }
+}
+
+class LightBulb extends SwitchableDevice {
+  turnOn() {
+    console.log("LightBulb: turned on");
+  }
+
+  turnOff() {
+    console.log("LightBulb: turned off");
+  }
+}
+
+class Fan extends SwitchableDevice {
+  turnOn() {
+    console.log("Fan: turned on");
+  }
+
+  turnOff() {
+    console.log("Fan: turned off");
+  }
+}
+
+const bulb = new LightBulb();
+const fan = new Fan();
+
+const switchButtonForBulb = new Switch(bulb);
+const switchButtonForFan = new Switch(fan);
+
+switchButtonForBulb.operate();
+switchButtonForFan.operate();
+    </script>
+</body>
+</html>
